@@ -48,6 +48,11 @@
 SourceArt/**/*.png
 SourceArt/**/*.tga
 
+#Starter Content
+Content/StarterContent/*
+Content/My_Content/Maps/*
+
+
 # Binary Files
 Binaries/*
 Plugins/*/Binaries/*
