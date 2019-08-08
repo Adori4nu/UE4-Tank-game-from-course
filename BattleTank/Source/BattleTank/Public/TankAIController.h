@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include <BattleTank\Public\Tank.h>
+#include "Engine/World.h"
 #include "AIController.h"
 #include "TankAIController.generated.h"
 
