@@ -2,6 +2,7 @@
 
 
 #include "Public/Tank.h"
+#include "BattleTank.h"
 
 
 // Sets default values
