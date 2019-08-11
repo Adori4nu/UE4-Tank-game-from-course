@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Kismet/GameplayStatics.h"
 #include "GameFramework/Actor.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/ActorComponent.h"
@@ -18,7 +19,7 @@ public:
 	// Sets default values for this component's properties
 	UTankAimingComponent();
 
-	void AimAt(FVector HitLocation);
+	void AimAt(FVector HitLocation,float LaunchSpeed);
 
 	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
 
@@ -32,4 +33,6 @@ public:
 
 private:
 	UStaticMeshComponent* Barrel = nullptr;
+
+	void MoveBarrel();
 };
