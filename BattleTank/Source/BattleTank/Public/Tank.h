@@ -30,7 +30,7 @@ public:
 
 protected:
 	UTankAimingComponent* TankAimingComponent = nullptr;
-
+	
 private:
 	ATank();
 

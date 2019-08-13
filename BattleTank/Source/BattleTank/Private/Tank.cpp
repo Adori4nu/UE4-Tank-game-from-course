@@ -14,6 +14,7 @@ ATank::ATank()
 
 	// No need to protect points as added at construction
 	TankAimingComponent = CreateDefaultSubobject<UTankAimingComponent>(FName("Aiming Component"));
+
 }
 
 // Called when the game starts or when spawned
@@ -42,11 +43,13 @@ void ATank::Fire()
 	if (!Barrel) { return; }
 
 	// Spawn a projectile at the socket location
-	GetWorld()->SpawnActor<AProjectile>(
+	auto Projectile = GetWorld()->SpawnActor<AProjectile>(
 		ProjectileBlueprint,
 		Barrel->GetSocketLocation(FName("Projectile")),
 		Barrel->GetSocketRotation(FName("Projectile"))
 	);
+
+	Projectile->LaunchProjectile(LaunchSpeed);
 }
 
 void ATank::SetBarrelReference(UTankBarrel* BarrelToSet)
