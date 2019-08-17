@@ -22,4 +22,6 @@ private:
 
 	virtual void Tick(float DeltaSeconds) override;
 
+	// How close can AI get to player
+	float AcceptanceRadius = 3000.0f;
 };
