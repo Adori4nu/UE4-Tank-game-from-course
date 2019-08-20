@@ -1,8 +1,8 @@
 // Copyright Adrian Kowarik
 
+#include "TankAIController.h"
 #include "GameFramework/Actor.h"
 #include "Engine/World.h"
-#include "Public/TankAIController.h"
 #include "TankPlayerController.h"
 #include "Public/TankAimingComponent.h"
 // Depends on movement component via pathfinding system
