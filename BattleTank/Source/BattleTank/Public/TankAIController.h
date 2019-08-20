@@ -7,8 +7,6 @@
 #include "GameFramework/Controller.h"
 #include "TankAIController.generated.h"
 
-class ATank;
-
 /**
  * 
  */

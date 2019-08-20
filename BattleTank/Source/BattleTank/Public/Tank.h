@@ -7,7 +7,6 @@
 #include "Tank.generated.h"
 
 class UTankBarrel;
-class UTankAimingComponent;
 class UTankTurret;
 class AProjectile;
 
@@ -16,15 +15,9 @@ class BATTLETANK_API ATank : public APawn
 {
 	GENERATED_BODY()
 
-public:
-	void AimAt(FVector HitLocation);
-	
+public:	
 	UFUNCTION(BlueprintCallable)
 	void Fire();
-
-protected:
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
 	ATank();
@@ -32,6 +25,7 @@ private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// TODO remove once firing is moved to aimingcomponent
 	UPROPERTY(EditAnywhere, Category = "Firing")
 	float LaunchSpeed = 167000;
 
