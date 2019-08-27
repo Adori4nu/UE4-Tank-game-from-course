@@ -9,8 +9,9 @@ void ATankPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	auto AimingComponent = GetPawn()->FindComponentByClass<UTankAimingComponent>();
+	auto TankRef = Cast<ATank>(GetPawn());
 	if (!ensure(AimingComponent)) { return; }
-	FoundAimingComponent(AimingComponent);
+	FoundAimingComponent(AimingComponent, TankRef);
 }
 
 void ATankPlayerController::Tick(float DeltaTime)
@@ -79,7 +80,7 @@ bool ATankPlayerController::GetLookVectorHitLocation(FVector LookDirection, FVec
 		HitResult,
 		StartLocation,
 		EndLocation,
-		ECollisionChannel::ECC_Visibility)
+		ECollisionChannel::ECC_Camera)
 		)
 	{
 		HitLocation = HitResult.Location;

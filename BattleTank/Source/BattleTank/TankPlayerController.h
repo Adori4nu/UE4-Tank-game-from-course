@@ -7,6 +7,7 @@
 #include "TankPlayerController.generated.h" // Must be the last include
 
 class UTankAimingComponent;
+class UTank;
 
 /**
  * Responsible for helping the player aim.
@@ -18,7 +19,7 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 
 protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
-	void FoundAimingComponent(UTankAimingComponent* AimpCompRef);
+	void FoundAimingComponent(UTankAimingComponent* AimpCompRef, ATank* TankRef);
 private:
 
 	virtual void BeginPlay() override;
