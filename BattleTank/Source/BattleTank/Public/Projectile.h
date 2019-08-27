@@ -2,12 +2,14 @@
 
 #pragma once
 
+
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Projectile.generated.h"
 
 class UProjectileMovementComponent;
 class UParticleSystemComponent;
+class URadialForceComponent;
 
 UCLASS()
 class BATTLETANK_API AProjectile : public AActor
@@ -17,6 +19,9 @@ class BATTLETANK_API AProjectile : public AActor
 public:	
 	// Sets default values for this actor's properties
 	AProjectile();
+
+	UPROPERTY(BlueprintReadWrite, Category = "Components")
+	UStaticMeshComponent* CollisionMesh = nullptr;
 
 protected:
 	// Called when the game starts or when spawned
@@ -31,8 +36,28 @@ public:
 private:
 	UProjectileMovementComponent* ProjectileMovement = nullptr;
 
-	UPROPERTY(VisibleAnywhere, Category= "Components")
-	UStaticMeshComponent* CollisionMesh = nullptr;
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+
+	void OnTimerExpire();
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float DestroyDelay = 10.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float  BaseDamage = 45.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float  MinimalDamage = 7.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float  InnerDamageRadius = 5.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float  OuterDamageRadius = 500.f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float  DamageFalloff = 0.7f;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UParticleSystemComponent* LaunchBlast = nullptr;
@@ -40,7 +65,6 @@ private:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UParticleSystemComponent* ImpactBlast = nullptr;
 
-	UFUNCTION()
-	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
-
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	URadialForceComponent* ExplosionForce = nullptr;
 };
