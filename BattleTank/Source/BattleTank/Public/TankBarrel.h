@@ -26,7 +26,7 @@ private:
 	float MaxElevation = 30.0f;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Setup")
-	float MinElevation = 0.0f;
+	float MinElevation = -5.0f;
 
 	UPROPERTY(EditAnywhere, Category = "Setup")
 	bool PreventSelfColision = false;
