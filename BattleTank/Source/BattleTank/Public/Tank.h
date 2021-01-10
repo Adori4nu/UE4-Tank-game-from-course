@@ -29,16 +29,16 @@ public:
 	float GetHealthPercent() const;
 
 	FTankDelegate OnDeath;
-protected:
-	UPROPERTY(BlueprintReadWrite, Category = "Setup")
-		float StartingHealth = 100.f;
-
-	UPROPERTY(BlueprintReadWrite, Category = "Health")
-		float CurrentHealth; // Initialised in Begin Play
 
 private:
 	ATank();
 
 	virtual void BeginPlay() override;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float StartingHealth = 100.f;
+
+	UPROPERTY(VisibleAnywhere, Category = "Health")
+	float CurrentHealth; // Initialised in Begin Play
 
 };

@@ -10,3 +10,11 @@ BattleTank/Content/MultistoryDungeons/
 BattleTank/Content/ProceduralNaturePack/
 BattleTank/Content/SoulCity/
 BattleTank/Content/MyContent/
+BattleTank/Content/My_Content/Blueprints/HealingVolume.uasset
+BattleTank/Content/My_Content/Characters/Basic_Tank/M249_Machine_Gun.uasset
+BattleTank/Content/My_Content/Characters/Materials/M249_Gun.uasset
+BattleTank/Content/My_Content/Characters/Textures/M249_Retopo_v6_low_M249_Gun_BaseColor.uasset
+BattleTank/Content/My_Content/Characters/Textures/M249_Retopo_v6_low_M249_Gun_Normal.uasset
+BattleTank/Content/My_Content/Characters/Textures/M249_Retopo_v6_low_M249_Gun_OcclusionRoughnessMetallic.uasset
+BattleTank/Source/BattleTank/Private/TankTurret.cpp.rej
+BattleTank/Source/BattleTank/Public/TankTurret.h.rej
